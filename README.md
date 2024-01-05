@@ -29,7 +29,7 @@ python3 init.py
 Do you want to use gcc or ld for compilation?
 [gcc/ld]:
 ```
-5. [*Conditional*] If using gcc, choose if you want to include debug symbols:
+5. [*Conditional*] If using gcc, choose if you want to include debug symbols
 ```
 Do you want to include debug symbols?
 [y/n]:
