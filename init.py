@@ -75,7 +75,7 @@ def init_file(file_name, mode, file_contents):
 
 
 def get_linker():
-    print("Do you want to use gcc or ld for compilation?")
+    print("Do you want to use gcc or ld for linking?")
     try:
         while True:
             linker = input("[gcc/ld]: ").lower()

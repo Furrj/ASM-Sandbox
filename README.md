@@ -26,7 +26,7 @@ python3 init.py
 ```
 4. Choose which linker you would like to use
 ```
-Do you want to use gcc or ld for compilation?
+Do you want to use gcc or ld for linking?
 [gcc/ld]:
 ```
 5. [*Conditional*] If using gcc, choose if you want to include debug symbols
