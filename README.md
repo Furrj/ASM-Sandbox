@@ -1,7 +1,5 @@
 # x64 Assembly Project Setup
-Script for initializing a nasm assembly project. Creates a src folder with a 
-boilerplate .asm file, a build file for the compiled executable, and a basic makefile for compiling the single .asm file. Uses nasm for compilation and gcc
-or ld for linking. If using gcc, has option to include gdb debug symbols and extra boilerplate for easier debugging.  Works on GNU/Linux systems only.
+Script for initializing a nasm assembly project. Creates a src folder with an .asm file including a basic "Hello, World" program, a build file for the compiled executable, and a basic makefile for compiling the single .asm file. Uses nasm for compilation and gcc or ld for linking. If using gcc, has option to include gdb debug symbols and extra boilerplate for easier debugging.  Works on GNU/Linux systems only.
 
 ## Dependencies
 - python3
@@ -45,6 +43,10 @@ make
 8. Run executable
 ```
 ./build/main
+```
+9. If succesful, you should see this in the terminal
+```
+Hello, World!
 ```
   
 ## Intialized Project

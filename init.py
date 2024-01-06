@@ -19,7 +19,9 @@ def init_makefile(linker, debugging):
     file_contents = "build/main: src/main.o\n"
     if linker == 1:
         if debugging:
-            file_contents += "\tgcc -g -z noexecstack -no-pie -Wall -Werror -o build/main src/main.o\n"
+            file_contents += (
+                "\tgcc -z noexecstack -no-pie -Wall -Werror -o build/main src/main.o\n"
+            )
         else:
             file_contents += (
                 "\tgcc -z noexecstack -no-pie -Wall -Werror -o build/main src/main.o\n"
@@ -35,6 +37,8 @@ def init_makefile(linker, debugging):
 def init_src_file(linker, debugging):
     file_name = "src/main.asm"
     file_contents = "SECTION .data\n"
+    file_contents += '\t\tmsg: db "Hello, World!", 10\n'
+    file_contents += "\t\tmsgLen: equ $-msg\n"
     file_contents += "\nSECTION .bss\n"
     file_contents += "\nSECTION .text\n"
     if linker == 1:
@@ -49,7 +53,16 @@ def init_src_file(linker, debugging):
         file_contents += "\t\tnop"
         file_contents += (" " * 18) + "; Debugging breakpoint\n"
         file_contents += "\n"
-    file_contents += "\t\t; Insert commands here\n"
+    file_contents += "\t\tmov rax, 1"
+    file_contents += (" " * 11) + "; Syscall code for write\n"
+    file_contents += "\t\tmov rdi, 1"
+    file_contents += (" " * 11) + "; Write to stdout\n"
+    file_contents += "\t\tmov rsi, msg"
+    file_contents += (" " * 9) + "; Store address of msg in rsi\n"
+    file_contents += "\t\tmov rdx, msgLen"
+    file_contents += (" " * 6) + "; Store length of msg in rdx\n"
+    file_contents += "\t\tsyscall"
+    file_contents += (" " * 14) + "; Call system to execute\n"
     file_contents += "\n"
     if debugging:
         file_contents += "\t\tnop"
